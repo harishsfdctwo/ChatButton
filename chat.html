@@ -10,9 +10,9 @@
 </style>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'>
-	console.log('updated snippet code');
+	//console.log('updated snippet code');
     var initESW = function(gslbBaseURL) {
-	  console.log('Loaded Text');
+	  //console.log('Loaded Text');
       embedded_svc.settings.displayHelpButton = false; //Or false
       embedded_svc.settings.language = 'en-US'; //For example, enter 'en' or 'en-US'
 
@@ -264,14 +264,14 @@
 	setTimeout(liveChatReady, 1700);
 
     function verifyAndStart(){
-        console.log('button click');
+        //console.log('button click');
 		var userData = pendo.getSerializedMetadata();
-    	console.log(userData)
+    	//console.log(userData)
 		
         document.getElementById("noAgentsAvailableError").style.display = "none";
  
         if (window.embedded_svc.settings){    
-            console.log('Embedded service available')
+            //console.log('Embedded service available')
 			window.embedded_svc.settings.targetElement = document.querySelector('#pendo-g-qzotzzyn6sVcTLLUZo7IQiS5xrU');
 			window.embedded_svc.settings.prepopulatedPrechatFields = {
                             FirstName: userData.visitor.firstName,
@@ -282,15 +282,15 @@
                             };
  
             if (document.querySelector('.helpButtonEnabled')){
-                console.log('agents available, start chat');
+                //console.log('agents available, start chat');
 				document.getElementById("noAgentsAvailableError").style.display = "none";
                 document.querySelector('.helpButtonEnabled').click();
             } else {
-                console.log('no agents available, display error');
+                //console.log('no agents available, display error');
                 document.getElementById("noAgentsAvailableError").style.display = "block";
             }
         } else {
-            console.log('Embedded service unavailable.');
+            //console.log('Embedded service unavailable.');
             verifyAndStart();
         }
     }
