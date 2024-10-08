@@ -10,40 +10,233 @@
 </style>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-<script type='text/javascript'>
-	var initESW = function(gslbBaseURL) {
-		embedded_svc.settings.displayHelpButton = true; //Or false
-		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+	console.log('updated snippet code');
+    var initESW = function(gslbBaseURL) {
+	  console.log('Loaded Text');
+      embedded_svc.settings.displayHelpButton = false; //Or false
+      embedded_svc.settings.language = 'en-US'; //For example, enter 'en' or 'en-US'
 
-		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
-		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+ 
+      //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+      //embedded_svc.settings.storageDomain ='yourdomain.com';
+      var buttonId = '573KY0000008OIF';//This is Fallback Button Id
+      var primaryButtonId = '573KY0000008OIA '; 
+      embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+         return primaryButtonId;
+      };
+      embedded_svc.settings.fallbackRouting = [primaryButtonId,buttonId]; //An array of button IDs, user IDs, or userId_buttonId
 
-		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
-		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-
-		// Settings for Chat
-		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-			// Returns a valid button ID.
-		//};
-		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-
-		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-		embedded_svc.settings.entryFeature = 'LiveAgent';
-
-		embedded_svc.init(
+    //LiveChatTranscriptStatus contains the API call code to know the status of LiveChatTranscript
+	var LiveChatTranscriptStatus_Script = document.createElement('script');
+	LiveChatTranscriptStatus_Script.src = 'https://clarivateanalytics.my.site.com/resource/LiveChatTranscriptStatus';
+	document.head.appendChild(LiveChatTranscriptStatus_Script);
+	  
+	  embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+      embedded_svc.settings.entryFeature = 'LiveAgent';
+      embedded_svc.settings.extraPrechatFormDetails = 
+      [
+        {
+            "label": "Job Role",
+            "value": "Academic Researcher",
+            "displayToAgent": false
+        }, 
+        {
+            "label": "Account Status",
+            "value": "Active",
+            "displayToAgent": false
+        },
+        {
+            "label": "Account Segment",
+            "value": "Life Sciences",
+            "displayToAgent": false
+        }
+      ];
+      embedded_svc.settings.extraPrechatInfo = 
+      [
+        {
+            "entityName": "Account",
+            "showOnCreate": true,
+            "linkToEntityName": "Case",
+            "linkToEntityField": "AccountId",
+            "linkToEntityName": "Contact",
+            "linkToEntityField": "AccountId",
+            "saveToTranscript": "AccountId",
+            "entityFieldMaps": 
+            [
+                {
+                "isExactMatch": false,
+                "fieldName": "Name",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Account Name 2"
+                },
+                {
+                "isExactMatch": true,
+                "fieldName": "SicDesc",
+                "doCreate": true,
+                "doFind": true,
+                "label": "Email"
+                },
+                {
+                "isExactMatch": false,
+                "fieldName": "RecordTypeId",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Account Record Type"
+                },
+                {
+                "isExactMatch": false,
+                "fieldName": "CA_Account_Status__c",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Account Status"
+                },
+                {
+                "isExactMatch": false,
+                "fieldName": "CA_Business_Segment__c",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Account Segment"
+                }
+            ]
+        },
+        {
+            "entityName": "Contact",
+            "showOnCreate": true,
+            "linkToEntityName": "Case",
+            "linkToEntityField": "ContactId",
+            "saveToTranscript": "ContactId",
+            "entityFieldMaps": 
+            [
+                {
+                "isExactMatch": false,
+                "fieldName": "FirstName",
+                "doCreate": true,
+                "doFind": false,
+                "label": "First Name"
+                }, 
+                {
+                "isExactMatch": false,
+                "fieldName": "LastName",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Last Name"
+                }, 
+                {
+                "isExactMatch": true,
+                "fieldName": "Email",
+                "doCreate": true,
+                "doFind": true,
+                "label": "Email"
+                }, 
+                {
+                "isExactMatch": false,
+                "fieldName": "Phone",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Phone"
+                }, 
+                {
+                "isExactMatch": false,
+                "fieldName": "CA_Job_Role__c",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Job Role"
+                }
+            ]
+        },
+        {
+            "entityName": "Case",
+            "showOnCreate": true,
+            "linkToEntityName": "Account",
+            "linkToEntityField": "CaseId",
+            "saveToTranscript": "CaseId",
+            "entityFieldMaps": 
+            [
+                {
+                "isExactMatch": false,
+                "fieldName": "Description",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Question"
+                },
+                {
+                "isExactMatch": true,
+                "fieldName": "CaseNumber",
+                "doCreate": false,
+                "doFind": true,
+                "label": "Case Number 2"
+                }, 
+                {
+                "isExactMatch": false,
+                "fieldName": "SuppliedCompany",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Web Company"
+                }, 
+                {
+                "isExactMatch": false,
+                "fieldName": "SuppliedEmail",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Email"
+                }, 
+                {
+                "isExactMatch": false,
+                "fieldName": "SuppliedPhone",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Phone"
+                }, 
+                {
+                "isExactMatch": false,
+                "fieldName": "CA_Webform_First_Name__c",
+                "doCreate": true,
+                "doFind": false,
+                "label": "First Name"
+                }, 
+                {
+                "isExactMatch": false,
+                "fieldName": "CA_Webform_Last_Name__c",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Last Name"
+                }, 
+                {
+                "isExactMatch": false,
+                "fieldName": "CA_Web_Country__c",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Web Country"
+                },
+                {
+                "isExactMatch": false,
+                "fieldName": "CA_Product__c",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Product"
+                },
+                {
+                "isExactMatch": false,
+                "fieldName": "CA_Product_Group__c",
+                "doCreate": true,
+                "doFind": false,
+                "label": "Business Line"
+                }
+            ]
+        }
+    ];
+     embedded_svc.init(
 			'https://clarivateanalytics--preprod.sandbox.my.salesforce.com',
 			'https://clarivateanalytics--preprod.sandbox.my.site.com/',
 			gslbBaseURL,
 			'00Dbf0000003waX',
 			'CA_HealthCare_Services',
 			{
-				baseLiveAgentContentURL: 'https://c.la12s-core1.sfdc-yfeipo.salesforceliveagent.com/content',
+				baseLiveAgentContentURL: 'https://c.la2s-core1.sfdc-yfeipo.salesforceliveagent.com/content',
 				deploymentId: '57241000000D6r3',
-				buttonId: '573KY0000008OI5',
-				baseLiveAgentURL: 'https://d.la12s-core1.sfdc-yfeipo.salesforceliveagent.com/chat',
+				buttonId: '573KY0000008OIA',
+				baseLiveAgentURL: 'https://d.la2s-core1.sfdc-yfeipo.salesforceliveagent.com/chat',
 				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IKY00000000012AA_18c3e234575',
 				isOfflineSupportEnabled: false
 			}
@@ -60,5 +253,46 @@
 	} else {
 		initESW('https://service.force.com');
 	}
+	function liveChatReady() {
+		console.log('loading button');
+		document.getElementById("openChatButton").classList.remove('cgi-open-live-chat-button-loading');
+		document.getElementById("openChatButton").classList.add('cgi-open-live-chat-button-primary');
+		document.getElementById("openChatButton").innerText ='Open live chat';
+		document.getElementById("openChatButton").onclick = function() { verifyAndStart(); };
+	 
+	}
+	setTimeout(liveChatReady, 1700);
+
+    function verifyAndStart(){
+        console.log('button click');
+		var userData = pendo.getSerializedMetadata();
+    	console.log(userData)
+		
+        document.getElementById("noAgentsAvailableError").style.display = "none";
+ 
+        if (window.embedded_svc.settings){    
+            console.log('Embedded service available')
+			window.embedded_svc.settings.targetElement = document.querySelector('#pendo-g-qzotzzyn6sVcTLLUZo7IQiS5xrU');
+			window.embedded_svc.settings.prepopulatedPrechatFields = {
+                            FirstName: userData.visitor.firstName,
+                            LastName: userData.visitor.lastName,
+                            Email: userData.visitor.email,
+                            SuppliedCompany: "CGI guest",
+                            CA_Product_Group__c: "Generics" 
+                            };
+ 
+            if (document.querySelector('.helpButtonEnabled')){
+                console.log('agents available, start chat');
+				document.getElementById("noAgentsAvailableError").style.display = "none";
+                document.querySelector('.helpButtonEnabled').click();
+            } else {
+                console.log('no agents available, display error');
+                document.getElementById("noAgentsAvailableError").style.display = "block";
+            }
+        } else {
+            console.log('Embedded service unavailable.');
+            verifyAndStart();
+        }
+    }
 </script>
 </html>
