@@ -35,25 +35,26 @@
 		embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 		    // List the pre-chat field names with the value and whether
 		    // it's editable in the pre-chat form.
+				
 		    "_firstName": {
 		      "value": sFirstName,
-		      "isEditableByEndUser": false
+		      "isEditableByEndUser": true
 		    },
 		    "_lastName": {
 		      "value": sLastName,
-		      "isEditableByEndUser": false
+		      "isEditableByEndUser": true
 		    },
-		    "_subject": {
-		      "value": "test subject",
+		    "_email": {
+		      "value": "test@test123.com",
 		      "isEditableByEndUser": true
 		    }
 		});
 		
 		//Set invisible prechat field
-		embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-		    "Shopping_Cart_Value" : sShoppingCartValue,
-		    "Customer_ID" : sCustomerID
-		});
+		//embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+		    //"Shopping_Cart_Value" : sShoppingCartValue,
+		    //"Customer_ID" : sCustomerID
+		//});
 		});
 		//Passing Web Context to Prechat - END
 	</script>
