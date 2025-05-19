@@ -11,26 +11,24 @@
 	}
 </style>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00DcX000001QM4L',
+				'CA_Messaging_Chat',
+				'https://clarivateanalytics--dev.sandbox.my.site.com/ESWCAMessagingChat1746627668178',
+				{
+					scrt2URL: 'https://clarivateanalytics--dev.sandbox.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
 <script type='text/javascript' src='https://clarivateanalytics--dev.sandbox.my.site.com/ESWCAMessagingChat1746627668178/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
- <script type='text/javascript'>
-	console.log ('loading Embedded Messaging started');
-  	function initEmbeddedMessaging() {
-  		try {
-			console.log ('loading Embedded Messaging In try block');
-  			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-  
-  			embeddedservice_bootstrap.init(
-  				'00DcX000001QM4L',
-  				'CA_Messaging_Chat',
-  				'https://clarivateanalytics--dev.sandbox.my.site.com/ESWCAMessagingChat1746627668178',
-  				{
-  					scrt2URL: 'https://clarivateanalytics--dev.sandbox.my.salesforce-scrt.com'
-  				}
-  			);
-  		} catch (err) {
-  			console.error('Error loading Embedded Messaging: ', err);
-  		}
-  	};
-  </script>
   
 </html>
