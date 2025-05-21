@@ -25,7 +25,7 @@
 		var sLastName = "Doe";
 		var sEmail = "Test@test123.com";
 		var sCustomerID = "12345678";
-		var sShoppingCartValue = "1000";
+		var ChatLanguage = "FR";
 		
 		window.addEventListener("onEmbeddedMessagingReady", e => {
 		//log event
@@ -51,10 +51,10 @@
 		});
 		
 		//Set invisible prechat field
-		//embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-		    //"Shopping_Cart_Value" : sShoppingCartValue,
+		embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+		    "Chat_Language" : ChatLanguage
 		    //"Customer_ID" : sCustomerID
-		//});
+		});
 		});
 		//Passing Web Context to Prechat - END
 	</script>
