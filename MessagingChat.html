@@ -9,11 +9,11 @@
 				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 	
 				embeddedservice_bootstrap.init(
-					'00DPt000006NVVt',
+					'00DPt000006W1ya',
 					'MIAW_Embedded_Service_Compumark',
-					'https://cpa-global--ipcrmiidev.sandbox.my.site.com/ESWMIAWEmbeddedService1749196966871',
+					'https://cpa-global--ipcrmqa.sandbox.my.site.com/ESWMIAWEmbeddedService1750419685161',
 					{
-						scrt2URL: 'https://cpa-global--ipcrmiidev.sandbox.my.salesforce-scrt.com'
+						scrt2URL: 'https://cpa-global--ipcrmqa.sandbox.my.salesforce-scrt.com'
 					}
 				);
 			} catch (err) {
@@ -21,10 +21,6 @@
 			}
 		};
 		//Passing Web Context to Prechat - BEGIN
-		var sFirstName = "John";
-		var sLastName = "Doe";
-		var sEmail = "Test@test123.com";
-		var sCustomerID = "12345678";
 		var ChatLanguage = "FR";
 		
 		window.addEventListener("onEmbeddedMessagingReady", e => {
@@ -33,31 +29,15 @@
 		
 		//set visible prechat field
 		embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-		    // List the pre-chat field names with the value and whether
-		    // it's editable in the pre-chat form.
-				
-		    //"_firstName": {
-		     // "value": sFirstName,
-		     // "isEditableByEndUser": false
-		    //},
-		    //"_lastName": {
-		      //"value": sLastName,
-		      //"isEditableByEndUser": false
-		    //},
-		    //"_email": {
-		     // "value": sEmail,
-		      //"isEditableByEndUser": false
-		    //}
 		});
 		
 		//Set invisible prechat field
 		embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 		    "Chat_Language" : ChatLanguage
-		    //"Customer_ID" : sCustomerID
 		});
 		});
 		//Passing Web Context to Prechat - END
 	</script>
-	<script type='text/javascript' src='https://cpa-global--ipcrmiidev.sandbox.my.site.com/ESWMIAWEmbeddedService1749196966871/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+	<script type='text/javascript' src='https://cpa-global--ipcrmqa.sandbox.my.site.com/ESWMIAWEmbeddedService1750419685161/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>  
 </html>
