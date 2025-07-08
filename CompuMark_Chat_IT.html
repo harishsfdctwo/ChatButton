@@ -11,11 +11,9 @@
 			try {
 				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 				// ✅ Set customData BEFORE init()
-				    embeddedservice_bootstrap.settings.embeddedServiceConfig = {
-					customData: {
-					    Chat_Language: ChatLanguage
-					}
-				    };
+				embeddedservice_bootstrap.settings.customData = {
+    					Chat_Language: ChatLanguage
+				};
 				embeddedservice_bootstrap.init(
 					'00DPt000006W1ya',
 					'MIAW_Embedded_Service_Compumark',
