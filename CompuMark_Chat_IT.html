@@ -8,7 +8,14 @@
 		function initEmbeddedMessaging() {
 			try {
 				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-	
+				//Passing Web Context to Prechat - BEGIN
+				var ChatLanguage = "IT";
+				// ✅ Set customData BEFORE init()
+				    embeddedservice_bootstrap.settings.embeddedServiceConfig = {
+					customData: {
+					    Chat_Language: ChatLanguage
+					}
+				    };
 				embeddedservice_bootstrap.init(
 					'00DPt000006W1ya',
 					'MIAW_Embedded_Service_Compumark',
@@ -21,8 +28,7 @@
 				console.error('Error loading Embedded Messaging: ', err);
 			}
 		};
-		//Passing Web Context to Prechat - BEGIN
-		var ChatLanguage = "IT";
+		
 		
 		window.addEventListener("onEmbeddedMessagingReady", e => {
 		//log event
