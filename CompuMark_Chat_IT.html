@@ -9,7 +9,13 @@
 		var ChatLanguage = 'IT';
 		function initEmbeddedMessaging() {
 			try {
-				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+				//embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+				window.dispatchEvent(new CustomEvent('sendChatLanguage', {
+					detail: {
+					    Chat_Language: ChatLanguage
+					}
+			    	}));
+				sessionStorage.setItem('Chat_Language', ChatLanguage);
 				// ✅ Set customData BEFORE init()
 				embeddedservice_bootstrap.settings.customData = {
     					Chat_Language: ChatLanguage
