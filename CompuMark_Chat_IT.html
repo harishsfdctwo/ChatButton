@@ -6,13 +6,13 @@
 	<p><b> Messageing In-App For External Site For *** CompuMark IT Language***</b></p>
 	<script type='text/javascript'>
 		//Passing Web Context to Prechat - BEGIN
-		var ChatLanguage = "IT";
+		var ChatLanguage = 'IT';
 		function initEmbeddedMessaging() {
 			try {
 				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 				// ✅ Set customData BEFORE init()
 				embeddedservice_bootstrap.settings.customData = {
-    					Chat_Language: "IT"
+    					Chat_Language: ChatLanguage
 				};
 				embeddedservice_bootstrap.init(
 					'00DPt000006W1ya',
