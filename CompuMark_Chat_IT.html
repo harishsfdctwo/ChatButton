@@ -32,28 +32,28 @@
 		};
 
 		// ✅ Fire custom event after Embedded Messaging is ready
-		window.addEventListener("onEmbeddedMessagingReady", () => {
-			console.log('🎯 Embedded Messaging Ready: dispatching ChatLanguage');
+		//window.addEventListener("onEmbeddedMessagingReady", () => {
+			//console.log('🎯 Embedded Messaging Ready: dispatching ChatLanguage');
 			
 			// Dispatch to LWC
-			window.dispatchEvent(new CustomEvent('sendChatLanguage', {
-				detail: { Chat_Language: ChatLanguage }
-			}));
-		});
+			//window.dispatchEvent(new CustomEvent('sendChatLanguage', {
+				//detail: { Chat_Language: ChatLanguage }
+			//}));
+		//});
 		
-		//window.addEventListener("onEmbeddedMessagingReady", e => {
+		window.addEventListener("onEmbeddedMessagingReady", e => {
 		//log event
-		//console.log("onEmbeddedMessagingReady event triggered");
+		console.log("onEmbeddedMessagingReady event triggered");
 		
 		//set visible prechat field
 		//embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 		//});
 		
 		//Set invisible prechat field
-		//embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-			//"Chat_Language" : ChatLanguage
-		//});
-		//});
+		embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+			"Chat_Language" : ChatLanguage
+		});
+		});
 		//Passing Web Context to Prechat - END
 	</script>
 	<script type='text/javascript' src='https://cpa-global--ipcrmqa.sandbox.my.site.com/ESWMIAWEmbeddedService1750419685161/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
