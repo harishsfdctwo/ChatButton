@@ -31,6 +31,7 @@
 		// ✅ Fire custom event after Embedded Messaging is ready
 		window.addEventListener("onEmbeddedMessagingReady", () => {
 		console.log('🎯 Embedded Messaging Ready: dispatching ChatLanguage');
+			window.chatLanguageFromBoot = ChatLanguage;
 			window.dispatchEvent(new CustomEvent('sendChatLanguage', {
 			    detail: { Chat_Language: ChatLanguage }
 			}));
