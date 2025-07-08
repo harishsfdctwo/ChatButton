@@ -32,7 +32,7 @@
 		window.addEventListener("onEmbeddedMessagingReady", () => {
 		console.log('🎯 Embedded Messaging Ready: dispatching ChatLanguage');
 			window.dispatchEvent(new CustomEvent('sendChatLanguage', {
-			    detail: { chatLanguage: ChatLanguage }
+			    detail: { Chat_Language: ChatLanguage }
 			}));
 		});
 		
