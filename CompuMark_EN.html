@@ -8,11 +8,11 @@
 		function initEmbeddedMessaging() {
 			try {
 				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-	
+	 
 				embeddedservice_bootstrap.init(
 					'00DPt000006W1ya',
-					'MIAW_Embedded_Service_Compumark',
-					'https://cpa-global--ipcrmqa.sandbox.my.site.com/ESWMIAWEmbeddedService1750419685161',
+					'Compumark_EN',
+					'https://cpa-global--ipcrmqa.sandbox.my.site.com/ESWCompumarkEN1752087009884',
 					{
 						scrt2URL: 'https://cpa-global--ipcrmqa.sandbox.my.salesforce-scrt.com'
 					}
@@ -21,24 +21,7 @@
 				console.error('Error loading Embedded Messaging: ', err);
 			}
 		};
-		//Passing Web Context to Prechat - BEGIN
-		var ChatLanguage = "EN";
-		
-		window.addEventListener("onEmbeddedMessagingReady", e => {
-		//log event
-		console.log("onEmbeddedMessagingReady event triggered");
-		
-		//set visible prechat field
-		embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-		});
-		
-		//Set invisible prechat field
-		embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-		    "Chat_Language" : ChatLanguage
-		});
-		});
-		//Passing Web Context to Prechat - END
 	</script>
-	<script type='text/javascript' src='https://cpa-global--ipcrmqa.sandbox.my.site.com/ESWMIAWEmbeddedService1750419685161/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+	<script type='text/javascript' src='https://cpa-global--ipcrmqa.sandbox.my.site.com/ESWCompumarkEN1752087009884/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>  
 </html>
