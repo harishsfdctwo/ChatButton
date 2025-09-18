@@ -5,23 +5,37 @@
 <body>
 	<p><b> Messageing In-App For External Site For *** CompuMark English Language***</b></p>
 	<script type='text/javascript'>
-		function initEmbeddedMessaging() {
-			try {
-				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-	 
-				embeddedservice_bootstrap.init(
-					'00DPt000006W1ya',
-					'Compumark_EN',
-					'https://cpa-global--ipcrmqa.sandbox.my.site.com/ESWCompumarkEN1752087009884',
-					{
-						scrt2URL: 'https://cpa-global--ipcrmqa.sandbox.my.salesforce-scrt.com'
-					}
-				);
-			} catch (err) {
-				console.error('Error loading Embedded Messaging: ', err);
-			}
-		};
-	</script>
-	<script type='text/javascript' src='https://cpa-global--ipcrmqa.sandbox.my.site.com/ESWCompumarkEN1752087009884/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
+	function initEmbeddedMessaging() {
+
+		try {
+
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+ 
+			embeddedservice_bootstrap.init(
+
+				'00DPv000009M4RB',
+
+				'Compumark_EN',
+
+				'https://cpa-global--ipcrmiisit.sandbox.my.site.com/ESWCompumarkEN1755695311972',
+
+				{
+
+					scrt2URL: 'https://cpa-global--ipcrmiisit.sandbox.my.salesforce-scrt.com'
+
+				}
+
+			);
+
+		} catch (err) {
+
+			console.error('Error loading Embedded Messaging: ', err);
+
+		}
+
+	};
+</script>
+<script type='text/javascript' src='https://cpa-global--ipcrmiisit.sandbox.my.site.com/ESWCompumarkEN1755695311972/assets/js/bootstrap.… onload='initEmbeddedMessaging()'></script>
 </body>  
 </html>
